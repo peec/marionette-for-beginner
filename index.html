@@ -1,32 +1,96 @@
 <!doctype html>
 <html>
 <head>
-	<title>Title</title>
-	<script type="text/javascript" src="backbone.marionette/json2.js"></script>
-	<script type="text/javascript" src="backbone.marionette/jquery.js"></script>
-	<script type="text/javascript" src="backbone.marionette/underscore.js"></script>
-	<script type="text/javascript" src="backbone.marionette/backbone.js"></script>
-	<script type="text/javascript" src="backbone.marionette/backbone.wreqr.js"></script>
-	<script type="text/javascript" src="backbone.marionette/backbone.babysitter.js"></script>
-	<script type="text/javascript" src="backbone.marionette/backbone.marionette.min.js"></script>
-	
-	
-	
-	
-	<script type="text/javascript" src="app/application.js"></script>
-	
-	<script type="text/javascript" src="app/start.js"></script>
-	
+	<meta charset="utf-8" />
+	<title>Facebook App</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 <body>
+	<!-- Dette er er den eneste htmlen vi har direkte i vår html. -->
 	<div id="main">
 	</div>
 	
 	
 	
+	<!-- 
+	------------------
+	TEMPLATES START
+	------------------
+	-->
+	
+	
+	<!-- FaceApp.Views.Layout -->
 	<script id="templ-layout" type="text/template">
-		<h1>Hello World.</h1>
+		<div id="container">
+			<header>
+				<h1>App navn</h1>
+			</header>
+			<section id="content"></section>
+		</div>
 	</script>
+
+	<!-- FaceApp.Views.IndexView -->
+	<script id="templ-indexview" type="text/template">
+		<h2>Index View.</h2>
+		<a href="#/test/hello/world">Gå til test viewet...</a>
+	</script>
+		
+	
+	<!-- FaceApp.Views.TestView -->
+	<script id="templ-testview" type="text/template">
+		<h2>Test view.</h2>
+		<a href="#">Gå til hovedsiden.</a>
+	</script>
+	
+	
+	
+	
+	
+	
+	
+	<!--
+	----------------------------------------------------------------------------
+	Vendor javascripts 
+	----------------------------------------------------------------------------
+	-->
+	
+	<!-- For at JSON.parse / JSON.stringify skal funke i browsere som ikke støtter dette. Backbone bruker dette. -->
+	<script type="text/javascript" src="js/vendor/backbone.marionette/json2.js"></script>
+	<!-- Vi skal bruke jQuery til manipulering av DOMen -->
+	<script type="text/javascript" src="js/vendor/backbone.marionette/jquery.js"></script>
+	<!-- Backbone krever underscore. Underscore har også masse fine "utility" metoder. Ref. underscorejs.org -->
+	<script type="text/javascript" src="js/vendor/backbone.marionette/underscore.js"></script>
+	<!-- Backbone kjernen. -->
+	<script type="text/javascript" src="js/vendor/backbone.marionette/backbone.js"></script>
+	<!-- Modul til backbone for å sende events som vi kan lytte på og sende. -->
+	<script type="text/javascript" src="js/vendor/backbone.marionette/backbone.wreqr.js"></script>
+	<!-- Modul til backbone for å enklere bruke sub-views av views. -->
+	<script type="text/javascript" src="js/vendor/backbone.marionette/backbone.babysitter.js"></script>
+	<!-- Marionette kjernen. -->
+	<script type="text/javascript" src="js/vendor/backbone.marionette/backbone.marionette.min.js"></script>
+	
+	
+	
+	<!-- 
+	----------------------------------------------------------------------------
+	Applikasjonens spesifikke javascript 
+	----------------------------------------------------------------------------
+	-->
+	
+	<!-- Lager en ny variabel "FaceApp" som alle skript under bruker. Dermed må denne være først. -->
+	<script type="text/javascript" src="js/app/application.js"></script>
+	
+	<!-- Inneholder controlleren vår. -->
+	<script type="text/javascript" src="js/app/controller.js"></script>
+	
+	<!-- Ruteren, som bruker kontrolleren over baser på url paths (#/test/1/2 , f.eks. ) -->
+	<script type="text/javascript" src="js/app/router.js"></script>
+	
+	<!-- Alle views legges her -->
+	<script type="text/javascript" src="js/app/views.js"></script>
+	
+	<!-- Denne filen må være sist, starter appen som vi lagde øverst. -->
+	<script type="text/javascript" src="js/app/start.js"></script>
 	
 	
 </body>

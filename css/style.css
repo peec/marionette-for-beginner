@@ -1,0 +1,12 @@
+/* Custom styles */
+
+body{
+	background-color: #ccc;
+	margin: 0;
+	padding: 0;
+}
+#container{
+	background-color: #fff;
+	width: 760px;
+	height: 400px;
+}
